@@ -12,6 +12,9 @@
 *.map
 *.exp
 
+# VS Code
+*-.json
+
 # Precompiled Headers
 *.gch
 *.pch
