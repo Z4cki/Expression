@@ -14,7 +14,6 @@ void appendChar(char * s, char c)
     {
         printf("Not enough space\n");
     }
-
 }
 
 int main()
@@ -31,10 +30,9 @@ int main()
 
     float a;
 
-    printf("Enter expression: ");
+    printf("Enter expression: \n");
 
-
-    while ((c = getchar()) != '\n')
+    while ((c = getchar()) != '\n' || num_flag == (c == '\n'))
     {
         // subtract '0' gives us the numeric value         
         if (c - '0' < 0)
