@@ -9,7 +9,6 @@ int main()
 
     printf("Enter expression: \n");
 
-
     while ((c = getchar()) != '\n')
     {
         // space, we ignore it
