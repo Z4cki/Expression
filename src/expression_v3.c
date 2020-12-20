@@ -2,11 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* appendChar(char * s, char c)
+void appendChar(char * s, char c)
 {
     size_t len = strlen(s);
+    if (len < 254)
+    {
+        s[len] = c;
+        s[len + 1] = '\0';
+    }
+    else 
+    {
+        printf("Not enough space\n");
+    }
 
-    // TODO
 }
 
 int main()
@@ -16,14 +24,14 @@ int main()
     char c, current_op;
 
     // the build number
-    char * current_num;
+    char current_num[256] = "";
 
     // indicates if a number is currently being build
     int num_flag = 0;
 
     float a;
 
-    printf("Enter expression: \n");
+    printf("Enter expression: ");
 
 
     while ((c = getchar()) != '\n')
@@ -36,8 +44,7 @@ int main()
         // if we have got an actual number
         else
         {
-            c = c - '0';
-            current_num += c;
+            appendChar(current_num, c - '0');
         }
         
         if(num_flag)
@@ -61,7 +68,7 @@ int main()
                 a = f;
             }
             num_flag = 0;
-            current_num = NULL;
+            current_num[0] = '\0';
         }
 
         if (c - '0' < 0)
