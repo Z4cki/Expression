@@ -13,7 +13,8 @@
 *.exp
 
 # VS Code
-*-.json
+*.json
+.vscode/
 
 # Precompiled Headers
 *.gch
