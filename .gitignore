@@ -14,7 +14,7 @@
 
 # VS Code
 *.json
-.vscode/
+.\.vscode\
 
 # Precompiled Headers
 *.gch
