@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 void appendchar(char * s, char c);
 void appendfloat(float * f, char c);
@@ -32,7 +33,7 @@ int main()
         if (i < len) c = input[i];
         else c = '+';
         // subtract '0' gives us the numeric value
-        if (c - '0' < 0)
+        if (c - '0' < 0 || 9 < c - '0')
         {
             switch (current_op) 
             {
@@ -48,6 +49,9 @@ int main()
             case '/':
                 result /= f;
                 break;
+            case '^':
+                result = pow(result, f);
+                break;
             default:
                 result = f;
             }
@@ -59,7 +63,7 @@ int main()
             appendfloat(&f, c - '0');
         }
 
-        if (c - '0' < 0)
+        if (c - '0' < 0 || 9 < c - '0')
         {
             current_op = c;
         }
