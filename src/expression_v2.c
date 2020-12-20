@@ -3,7 +3,6 @@
 
 int main()
 {
-
     // c stores the current character, current_op the last operand detected
     char c, current_op;
     float a;

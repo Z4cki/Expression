@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//#define __DEBUG
 #ifdef __DEBUG
 int main()
 {
@@ -11,7 +12,7 @@ int main()
     {
         c = c - '0';
         a = (float) c;
-        if (a) printf("works\n");
+        printf("%c\n", c);
     }
     system("pause");
 }
