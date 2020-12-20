@@ -4,6 +4,7 @@
 #include <math.h>
 
 void appendchar(char * s, char c);
+void remchar(char * s);
 void appendfloat(float * f, char c);
 
 int main()
@@ -12,7 +13,7 @@ int main()
     // c stores the current character, current_op the last operand detected
     char c, current_op;
 
-    // the build number
+    // the input line / string
     char input[256] = "";
 
     float result, f = 0.0;
@@ -20,10 +21,15 @@ int main()
     printf("Enter expression: \n");
 
     // read the input
-    while ((c = getchar()) != '\n')
+    while ((c = getchar()) != '\n' && c != '\r')
     {
-        // ignore spaces
-        if (c == 32) continue;
+        // ignore spaces or returns
+        if (c == 32 || c == 13) continue;
+        if (c == '\b') 
+        {
+            remchar(input);
+            continue;
+        }
         appendchar(input, c);
     }
 
@@ -84,6 +90,12 @@ void appendchar(char * s, char c)
         s[len] = c;
         s[len+1] = '\0';
     }
+}
+
+void remchar(char * s)
+{
+    size_t len = strlen(s);
+    s[len-1] = '\0';
 }
 
 void appendfloat(float * f, char c)
